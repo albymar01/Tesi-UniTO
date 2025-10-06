@@ -199,14 +199,14 @@
 
   pagebreak(weak: true)
 
-  // Acknowledgments
+  /* // Acknowledgments
   if acknowledgments != none {
     heading(level: 2, numbering: none, outlined: false,
       if lang == "en" { "Acknowledgments" } else { "Ringraziamenti" }
     )
     acknowledgments
     pagebreak(weak: true)
-  }
+  } */
 
   // Abstract
   if abstract != none {
@@ -214,13 +214,13 @@
     abstract
   }
 
-  // Keywords
+ /* // Keywords
   if keywords != none {
     heading(level: 2, numbering: none, outlined: false,
       if lang == "en" { "Keywords" } else { "Parole chiave" }
     )
     keywords
-  }
+  } */
 
   pagebreak(weak: true, to: "odd")
 
@@ -260,15 +260,40 @@
 
   body
 
-  pagebreak(to: "odd")
+if bibliography != none {
+  heading(level: 1, numbering: none,
+    if lang == "en" { "References" } else { "Bibliografia / Sitografia" }
+  )
 
-  // Bibliography
-  if bibliography != none {
-    heading(level: 1, numbering: none,
-      if lang == "en" { "References" } else { "Riferimenti" }
+  set par(justify: false)
+
+  enum[
+    A. Valese, *CoCoS*: un tool per la combinazione di concetti
+
+    Scrapy — link("https://docs.scrapy.org/en/latest/index.html")[Docs]
+
+    Web Crawler — link("https://en.wikipedia.org/wiki/Web_crawler")[Wikipedia]
+
+    NLTK — link("https://en.wikipedia.org/wiki/Natural_Language_Toolkit")[Wikipedia]
+
+    TreeTaggerWrapper — link("https://treetaggerwrapper.readthedocs.io/en/latest/")[Docs]
+  ]
+}
+
+
+
+
+
+
+   
+  pagebreak(to: "even")
+
+  // Ringraziamenti alla fine
+  if acknowledgments != none {
+    pagebreak(to: "odd")
+    heading(level: 1, numbering: none, outlined: false,
+      if lang == "en" { "Acknowledgments" } else { "Ringraziamenti" }
     )
-    show std-bibliography: set text(size: 0.9em)
-    set std-bibliography(title: none)
-    bibliography
+    acknowledgments
   }
 }
