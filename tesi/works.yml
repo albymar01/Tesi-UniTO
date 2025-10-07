@@ -1,29 +1,126 @@
 unitotmplt:
   type: Repository
-  title: "UniTO typst template"
+  title: "UniTO Typst Template"
   url: "https://github.com/eduardz1/UniTO-typst-template"
+  date: 2024
+  note: "Template di tesi per UniTO in Typst."
 
 typst:
   type: Web
-  title: "Typst"
-  url: "http://typst.app"
+  title: "Typst — A new markup-based typesetting system"
+  url: "https://typst.app"
+  date: 2025
+  note: "Strumento usato per comporre questa tesi."
+
+degari_music:
+  type: Repository
+  title: "DEGARI-Music"
+  author:
+    - "Alberto Marocco"
+  url: "https://github.com/albymar01/DEGARI-Music"
+  date: 2025
+  abstract: "Repository del progetto di raccomandazione musicale basato sulla combinazione di concetti (prototipi tipici/rigidi, anchors, soglie)."
+
+tesi_repo:
+  type: Repository
+  title: "Tesi-UniTO (manoscritto)"
+  author:
+    - "Alberto Marocco"
+  url: "https://github.com/albymar01/Tesi-UniTO"
+  date: 2025
+  note: "Repository della tesi e dei sorgenti Typst."
+
+genius:
+  type: Web
+  title: "Genius"
+  url: "https://genius.com"
+  date: 2025
+  note: "Sorgente testuale/metadata dei brani (lyrics)."
+
+scrapy:
+  type: Misc
+  title: "Scrapy"
+  url: "https://docs.scrapy.org/en/latest/"
+  date: 2025
+  note: "Framework Python per web crawling e scraping, usato per il crawler dei testi."
+
+nltk:
+  type: Misc
+  title: "NLTK — Natural Language Toolkit"
+  url: "https://www.nltk.org/"
+  date: 2025
+  note: "Toolkit NLP in Python, usato per pre-processing e analisi testuale."
+
+treetaggerwrapper:
+  type: Misc
+  title: "TreeTaggerWrapper"
+  url: "https://treetaggerwrapper.readthedocs.io/"
+  date: 2025
+  note: "Wrapper Python di TreeTagger per il part-of-speech tagging."
+
+treetagger:
+  type: Misc
+  title: "TreeTagger"
+  author:
+    - "Helmut Schmid"
+  url: "https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/"
+  date: 2013
+  note: "Tool originale di POS-tagging."
+
+cocos:
+  type: Report
+  title: "CoCoS: uno strumento per la combinazione di concetti"
+  author:
+    - "A. Valese"
+  date: 2020
+  note: "Documento/descrizione del tool per la combinazione di concetti usato come riferimento concettuale."
+
+sklearn:
+  type: Misc
+  title: "scikit-learn"
+  url: "https://scikit-learn.org/"
+  date: 2025
+  note: "Libreria di machine learning in Python (supporto a classificazione, metriche, pipeline)."
+
+pandas:
+  type: Misc
+  title: "pandas"
+  url: "https://pandas.pydata.org/"
+  date: 2025
+  note: "Libreria per la manipolazione di dati tabellari."
+
+numpy:
+  type: Misc
+  title: "NumPy"
+  url: "https://numpy.org/"
+  date: 2025
+  note: "Calcolo numerico e array ad alte prestazioni."
+
+matplotlib:
+  type: Misc
+  title: "Matplotlib"
+  url: "https://matplotlib.org/"
+  date: 2025
+  note: "Libreria per grafici in Python."
+
+concept_combination:
+  type: Article
+  title: "Concept Combination and Prototypes"
+  author:
+    - "Peter Gärdenfors"
+  date: 2004
+  note: "Riferimento teorico generale sui prototipi e combinazione di concetti."
 
 cormen:
   type: Book
-  title: "Introduction to Algorithms, Third Edition"
+  title: "Introduction to Algorithms"
   author:
-    [
-      "Thomas H. Cormen",
-      "Charles E. Leiserson",
-      "Ronald L. Rivest",
-      "Clifford Stein",
-    ]
+    - "Thomas H. Cormen"
+    - "Charles E. Leiserson"
+    - "Ronald L. Rivest"
+    - "Clifford Stein"
+  edition: "3rd"
   publisher: "MIT Press"
   date: 2009
-  edition: "3rd"
-  abstract: "If you had to buy just one text on algorithms, Introduction to Algorithms is a magnificent choice. The book begins by considering the mathematical foundations of the analysis of algorithms and maintains this mathematical rigor throughout the work. The tools developed in these opening sections are then applied to sorting, data structures, graphs, and a variety of selected algorithms including computational geometry, string algorithms, parallel models of computation, fast Fourier transforms (FFTs), and more. This book's strength lies in its encyclopedic range, clear exposition, and powerful analysis. Pseudo-code explanation of the algorithms coupled with proof of their accuracy makes this book is a great resource on the basic tools used to analyze the performance of algorithms."
   serial-number:
     isbn: "0262033844"
-    doi: "10.5555/1614191"
-
-

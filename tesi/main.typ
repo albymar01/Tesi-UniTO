@@ -43,8 +43,12 @@
   lang: "it",
   logo: image("imgs/logo.svg", width: 40%),
 
-  // Bibliografia manuale gestita dal template
-  bibliography: none,
+    // Attiva la sezione finale Bibliografia + Ringraziamenti
+  // (usa l’elenco manuale già previsto nel template)
+  bib: "../works.yml",
+
+
+
 
   // Abstract e ringraziamenti
   abstract: abstract,
@@ -54,7 +58,7 @@
   keywords: ["AI", "Typst", "Tesi", "Raccomandazione Musicale"]
 )
 
-// ---------- Capitoli veri ----------
+// ---------- Capitoli ----------
 #include "../chapters/3.Introduzione.typ"
 #include "../chapters/4.Sviluppo.typ"
 #include "../chapters/5.Risultati.typ"
