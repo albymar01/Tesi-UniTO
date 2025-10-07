@@ -252,14 +252,16 @@
 
   pagebreak(to: "odd")
 
-  // Main body
+ // ---------- Main body ----------
+  pagebreak(to: "odd")
   show link: underline
   set page(numbering: "1")
   set align(top + left)
   counter(page).update(1)
-
   body
+}
 
+// Bibliography (da sistemare)
 if bibliography != none {
   heading(level: 1, numbering: none,
     if lang == "en" { "References" } else { "Bibliografia / Sitografia" }
@@ -278,15 +280,7 @@ if bibliography != none {
 
     TreeTaggerWrapper — link("https://treetaggerwrapper.readthedocs.io/en/latest/")[Docs]
   ]
-}
 
-
-
-
-
-
-   
-  pagebreak(to: "even")
 
   // Ringraziamenti alla fine
   if acknowledgments != none {
