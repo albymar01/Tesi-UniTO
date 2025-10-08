@@ -60,6 +60,8 @@
 
 // ---------- Capitoli ----------
 #include "../chapters/3.Introduzione.typ"
+pagebreak(weak: true)
+
 #include "../chapters/4.Sviluppo.typ"
 #include "../chapters/5.Risultati.typ"
 #include "../chapters/6.ConclusioniESviluppiFuturi.typ"
