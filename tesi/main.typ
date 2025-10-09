@@ -47,9 +47,6 @@
   // (usa l’elenco manuale già previsto nel template)
   bib: "../works.yml",
 
-
-
-
   // Abstract e ringraziamenti
   abstract: abstract,
   acknowledgments: acknowledgments,
@@ -59,9 +56,46 @@
 )
 
 // ---------- Capitoli ----------
+//Frontespizio, Dichiarazione di originalità, Abstract, Indice e poi:
 #include "../chapters/3.Introduzione.typ"
-pagebreak(weak: true)
+#pagebreak(weak: true)
 
-#include "../chapters/4.Sviluppo.typ"
-#include "../chapters/5.Risultati.typ"
-#include "../chapters/6.ConclusioniESviluppiFuturi.typ"
+#include "../chapters/4.FondamentiTeorici.typ"
+#pagebreak(weak: true)
+
+//Questo capitolo l'ho riassunto cosi ma dentro lo chiamerei Probabilità per la combinazione: il framework TCL e gli strumenti
+#include "../chapters/5.TCLeStrumenti.typ"
+#pagebreak(weak: true)
+
+//Questo l'ho chiamo poi Estrazione e pre-processing dei dati (Genius)
+#include "../chapters/6.EstrazioneDeiDatiGenius.typ"
+#pagebreak(weak: true)
+
+//qua a me piace così senza citare modulo nel titolo
+#include "../chapters/7.CreazioneDeiPrototipi.typ"
+#pagebreak(weak: true)
+
+//qua l'8 è da miglioare
+#include "../chapters/8.CoCoSCombinazioneGeneri.typ"
+#pagebreak(weak: true)
+
+//anche qua serve il titolo migliore dimmelo
+#include "../chapters/9.ClassificatoreESpiegazioni.typ"
+#pagebreak(weak: true)
+
+//lascerei appunto separato
+#include "../chapters/10.SistemaDiRaccomandazione.typ"
+#pagebreak(weak: true)
+
+//da qui in poi dimmi se manca altro
+#include "../chapters/11.Risultati.typ"
+#pagebreak(weak: true)
+
+#include "../chapters/12.Discussione.typ"
+#pagebreak(weak: true)
+
+#include "../chapters/13.ConclusioniESviluppiFuturi.typ"
+#pagebreak(weak: true)
+
+//bibliografia e ringraziamenti finali
+//fine del documento
