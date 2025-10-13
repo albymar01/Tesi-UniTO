@@ -55,6 +55,9 @@
   keywords: ["AI", "Typst", "Tesi", "Raccomandazione Musicale"]
 )
 
+// Spaziatura per i level-2 (==) in tutto il documento
+#show heading.where(level: 2): set block(above: 1.4em, below: 0.7em)
+
 // ---------- Capitoli ----------
 //Frontespizio, Dichiarazione di originalità, Abstract, Indice e poi:
 #include "../chapters/3.Introduzione.typ"
