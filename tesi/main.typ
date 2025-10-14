@@ -3,14 +3,17 @@
 
 // ---------- Abstract ----------
 #let abstract = [
-  Questo lavoro presenta un sistema intelligente di raccomandazione musicale
-  basato sulla combinazione di concetti. Il sistema utilizza testi e caratteristiche
-  stilistiche dei brani, acquisiti e arricchiti tramite un crawler automatico di Genius,
-  per costruire prototipi di genere e ibridi cross-genere. La pipeline implementata
-  comprende moduli di analisi delle ripetizioni, generazione di prototipi concettuali
-  e un classificatore che sfrutta “anchors” e soglie adattive per selezionare i
-  contenuti più rilevanti. L’approccio proposto coniuga trasparenza e interpretabilità,
-  fornendo raccomandazioni spiegabili e adattabili a diversi scenari musicali.
+Questo lavoro presenta DEGARI-Music, un sistema content-based di raccomandazione
+musicale basato sulla combinazione concettuale e sulla tipicità. I testi dei brani,
+raccolti e arricchiti tramite un crawler su Genius, vengono preprocessati per
+estrarre feature lessicali e segnali di ripetizione; da questi si costruiscono prototipi
+di genere (proprietà rigide e tipiche). La combinazione HEAD/MODIFIER è
+realizzata con il framework TCL e il tool CoCoS, che generano scenari
+ponderati e prototipi ibridi impiegati per classificazione, ranking e spiegazioni.
+Un classificatore spiegabile, basato su anchors e soglie adattive, filtra e ordina
+i brani; le raccomandazioni risultano interpretabili a livello di tratti e di scenario.
+L’approccio coniuga trasparenza, riproducibilità e potenziale estendibilità a
+multilingua, feature audio e apprendimento dei pesi.
 ]
 
 // ---------- Ringraziamenti ----------
