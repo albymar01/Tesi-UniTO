@@ -79,25 +79,25 @@
 #pagebreak(weak: true)
 
 //qua l'8 è da miglioare
-#include "../chapters/8.CoCoSCombinazioneGeneri.typ"
+#include "../chapters/8.BuildTypicalRigid.typ"
 #pagebreak(weak: true)
 
 //anche qua serve il titolo migliore dimmelo
-#include "../chapters/9.ClassificatoreESpiegazioni.typ"
+#include "../chapters/9.PreprocessingCocos.typ"
 #pagebreak(weak: true)
 
 //lascerei appunto separato
-#include "../chapters/10.SistemaDiRaccomandazione.typ"
+#include "../chapters/11.SistemaDiRaccomandazione.typ"
 #pagebreak(weak: true)
 
 //da qui in poi dimmi se manca altro
-#include "../chapters/11.Risultati.typ"
+#include "../chapters/12.Risultati.typ"
 #pagebreak(weak: true)
 
-#include "../chapters/12.Discussione.typ"
+#include "../chapters/13.Discussione.typ"
 #pagebreak(weak: true)
 
-#include "../chapters/13.ConclusioniESviluppiFuturi.typ"
+#include "../chapters/14.ConclusioniESviluppiFuturi.typ"
 #pagebreak(weak: true)
 
 //bibliografia e ringraziamenti finali
