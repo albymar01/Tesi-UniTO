@@ -115,26 +115,20 @@
 
   v(4fr)
 
-  grid(
-    columns: 2,
-    align: left,
-    grid.cell(inset: (right: 40pt))[
-      #if lang == "en" { smallcaps("supervisor") } else { smallcaps("relatore") }\
-      *#supervisor*
+grid(
+  columns: 2,
+  align: left,
+  grid.cell(inset: (right: 40pt))[
+    #if lang == "en" { smallcaps("supervisor") } else { smallcaps("relatore") }\
+    *#supervisor*
+  ],
+  grid.cell(inset: (left: 40pt))[
+    #if lang == "en" { smallcaps("candidate") } else { smallcaps("candidato") }\
+    *#candidate.name* \
+    #candidate.matricola
+  ]
+)
 
-      #if co-supervisor != none {
-        if lang == "en" { smallcaps("co-supervisor") } else { smallcaps("correlatore") }
-        linebreak()
-        co-supervisor.map(it => [ *#it* ]).join(linebreak())
-      }
-    ],
-    grid.cell(inset: (left: 40pt))[
-      \ \ \
-      #if lang == "en" { smallcaps("candidate") } else { smallcaps("candidato") }\
-      *#candidate.name* \
-      #candidate.matricola
-    ]
-  )
 
   v(5fr)
   text(1.2em, [

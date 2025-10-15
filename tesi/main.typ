@@ -3,24 +3,23 @@
 
 // ---------- Abstract ----------
 #let abstract = [
-Questo lavoro presenta DEGARI-Music, un sistema content-based di raccomandazione
-musicale basato sulla combinazione concettuale e sulla tipicità. I testi dei brani,
-raccolti e arricchiti tramite un crawler su Genius, vengono preprocessati per
-estrarre feature lessicali e segnali di ripetizione; da questi si costruiscono prototipi
-di genere (proprietà rigide e tipiche). La combinazione HEAD/MODIFIER è
-realizzata con il framework TCL e il tool CoCoS, che generano scenari
+#v(8pt)
+La seguente tesi di laurea presenta *DEGARI-Music*, un sistema di raccomandazione
+musicale basato sulla combinazione concettuale e sulla tipicità. I testi e le caratteristiche stilistiche dei brani,
+raccolti e arricchiti attraverso un crawler automatico di Genius.com, vengono preprocessati per
+estrarre feature lessicali e segnali di ripetizione; da essi si costruiscono prototipi
+di genere con proprietà *rigide* e *tipiche*. La combinazione HEAD/MODIFIER è
+realizzata con il framework *TCL* e il tool *CoCoS*, che generano scenari
 ponderati e prototipi ibridi impiegati per classificazione, ranking e spiegazioni.
-Un classificatore spiegabile, basato su anchors e soglie adattive, filtra e ordina
-i brani; le raccomandazioni risultano interpretabili a livello di tratti e di scenario.
+Un classificatore spiegabile, basato su "anchors" e soglie adattive, filtra e ordina
+i brani; le raccomandazioni risultano interpretabili sulla base dei tratti e dello scenario selezionato.
 L’approccio coniuga trasparenza, riproducibilità e potenziale estendibilità a
-multilingua, feature audio e apprendimento dei pesi.
+multilingua, feature audio e apprendimento dei pesi. 
 ]
 
 // ---------- Ringraziamenti ----------
 #let acknowledgments = [
-  Desidero esprimere la mia sincera gratitudine al Prof. Gian Luca Pozzato per
-  la sua guida e supporto durante lo sviluppo di questa tesi. Un ringraziamento
-  speciale va anche ai miei amici e familiari per il loro incoraggiamento costante.
+  TO DO
 ]
 
 // ---------- Mostra il template ----------
