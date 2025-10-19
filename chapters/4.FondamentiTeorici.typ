@@ -1,11 +1,11 @@
-= Fondamenti teorici: tipicalità e combinazione di concetti (TCL)
+= Fondamenti teorici: tipicità e combinazione di concetti (TCL)
 
 
 == Tipicità e chiusura razionale
 
-Le Logiche Descrittive (DL) forniscono un formalismo per rappresentare concetti, ruoli e individui. Nelle DL classiche (ad es. ALC) il ragionamento è monotòno: aggiungere nuova informazione non invalida ciò che è già derivabile. Questo è inadeguato per conoscenza “di buon senso” ricca di eccezioni.
+Le *Logiche Descrittive* (DL) forniscono un formalismo per rappresentare concetti, ruoli e individui. Nelle DL classiche (ad es. *ALC*) il ragionamento è *monotono*: aggiungere nuova informazione non invalida ciò che è già derivabile. Questo comportamento è inadeguato per modellare la conoscenza “di buon senso”, spesso caratterizzata da regole generali con eccezioni.
 
-Per modellare regolarità con eccezioni si introduce l’operatore di tipicità $T(\cdot)$: un’assioma del tipo $T(C) subset.eq.sq D$ indica che “tipicamente i $C$ sono $D$”. Le inclusioni *rigide* conservano la forma classica $C subset.eq.sq D$.
+Per modellare regolarità con eccezioni si introduce l’operatore di *tipicità* $T(\cdot)$: un’assioma del tipo $T(C) subset.eq.sq D$ indica che “tipicamente i $C$ sono $D$”. Le inclusioni *rigide* conservano la forma classica $C subset.eq.sq D$.
 
 La *rational closure* estende alle DL la chiusura razionale: i concetti vengono ordinati per grado di eccezionalità e si adottano *modelli minimi* che minimizzano i ranghi di anomalia. In questo modo le inferenze su $T(\cdot)$ sono conservative, ma consentono di sospendere premesse tipiche quando emergono informazioni più specifiche (ereditarietà difettibile).
 

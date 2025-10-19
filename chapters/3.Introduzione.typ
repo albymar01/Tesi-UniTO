@@ -10,54 +10,49 @@ Adattare il framework *DEGARI* al dominio musicale, proponendo un sistema _conte
 
 Realizzare una pipeline riproducibile per l’estrazione dei testi e delle caratteristiche da *Genius*, il pre-processing linguistico e la normalizzazione dei dati lessicali necessari all’elaborazione logica.
 
+Costruire prototipi di genere che rappresentino le proprietà *rigide* e *tipiche* di ciascun genere musicale, da utilizzare per classificazione e raccomandazione.
+
 Fornire spiegazioni sintetiche e leggibili, basate su tratti lessicali e proprietà ereditate dai prototipi.
 
 Validare il comportamento del sistema tramite verifiche automatiche e analisi qualitative su combinazioni di generi.
 
-Rilasciare una pipeline riproducibile, modulare e integrabile con basi di conoscenza diverse.
+Rilasciare una pipeline modulare e integrabile con basi di conoscenza diverse.
 
 == Contributi
 
-*Realizzare* una pipeline end-to-end sui testi (Genius): estrazione, pulizia, lemmatizzazione; selezione di token informativi; normalizzazione nel range richiesto dal framework.
+*Adattamento del framework DEGARI.* Il lavoro estende l’uso del sistema originario, basato su *TCL* e *CoCoS*, dal dominio concettuale generale a quello musicale. Sono stati definiti formati di input compatibili con i testi delle canzoni e procedure di generazione dei prototipi.
 
-*Prototipare* _i generi_: definizione di proprietà rigide (vincoli necessari) e tipiche (con grado $p \in (0.5,1]$), pronte per _TCL_.
+*Pipeline testi → prototipi di genere.* Implementata una catena completa per la raccolta dei testi da *Genius*, la pulizia e lemmatizzazione, la selezione dei lemmi informativi e la costruzione dei prototipi di genere con proprietà *rigide* e *tipiche* pronte per l’elaborazione logica.
 
-*Combinare* concetti con _CoCoS_: generazione/valutazione di scenari; rispetto delle rigide; preferenza all’HEAD nei conflitti; esclusione di esiti banali.
+*Pre-processing per CoCoS.* Sviluppati gli script per la preparazione automatica delle coppie *HEAD/MODIFIER* e per la produzione dei file di input necessari alla combinazione concettuale, con gestione delle inclusioni rigide e dei conflitti di tipicità.
 
-*Implementare* _classificatore e recommender_ spiegabili: uso della mappa proprietà (cos'è cosa intendi? sappi che non posso usare termini poi non presenti) → grado e di ＠scenario (cosa intendi? cos'è?) per riclassificazione, ranking e spiegazioni.
+*Generazione dei prototipi ibridi.* Utilizzato *CoCoS* per combinare i prototipi di genere, ottenendo nuovi generi *cross-genere* caratterizzati da tratti coerenti e plausibili, successivamente riutilizzati per classificazione e raccomandazione.
 
-*Validare* _il sistema_ con valutazioni automatiche e analisi qualitative su casi rappresentativi _(ibridi cross-genere)_.
+*Classificatore e sistema di raccomandazione.* Implementato un modulo che impiega i prototipi generati per riclassificare i brani e produrre raccomandazioni spiegabili, basate sui tratti lessicali ereditati e sugli scenari selezionati dal framework logico.
+
+*Riproducibilità e validazione.* Forniti script, configurazioni e documentazione per eseguire l’intera pipeline, con valutazioni automatiche e analisi qualitative su combinazioni di generi rappresentative.
 
 == Metodologia in breve
 
-Estrazione e pre-processing (Genius). Raccolta descrizioni/testi; rimozione stopwords, gestione forme flesse, filtraggio elementi non informativi; lemmatizzazione.
+*Estrazione e pre-processing (Genius).* Raccolta dei testi musicali tramite crawler su *Genius*; rimozione di *stopwords*, gestione delle forme flesse, filtraggio di lemmi poco informativi; lemmatizzazione e normalizzazione lessicale.
 
-Prototipi di genere. Conteggio e ponderazione dei lemmi caratteristici per genere; soglia di significatività; rescaling nel range compatibile con TCL.
+*Generazione dei prototipi di genere.* Per ciascun genere: conteggio dei lemmi caratteristici, assegnazione di punteggi di frequenza; applicazione di una soglia di significatività; *rescaling* dei punteggi nel range compatibile con il framework *TCL*.
 
-TCL/CoCoS. Proprietà tipiche annotate con $p$; generazione di scenari coerenti; selezione non banale con euristica HEAD/MODIFIER; inclusioni nella forma $p :: T(C) subset.eq.sq D$.
+*TCL / CoCoS – combinazione concettuale.* Annotazione delle proprietà tipiche con grado $p$; generazione di scenari coerenti per ciascuna coppia *HEAD/MODIFIER*; selezione non banale con euristica HEAD preferenziale; le inclusioni risultanti assumono la forma $p :: T(C) subset.eq.sq D$.
 
-Classificazione & ranking. Un brano è compatibile con un concetto se soddisfa i vincoli rigidi e una quota sufficiente di proprietà tipiche; il punteggio deriva dall’allineamento dei tratti (riutilizzato nelle spiegazioni).
+*Classificazione e ranking.* Un brano è considerato compatibile con un prototipo se soddisfa i vincoli *rigidi* e possiede una sufficiente parte delle proprietà tipiche attive; il punteggio per il ranking deriva dall’allineamento tra i tratti del brano e quelli del prototipo, e viene utilizzato per ordinare raccomandazioni.
 
 == Perimetro e limiti
 
-Il sistema è content-based sui testi: non usa (ancora) feature audio o metadati strutturati (anno, artista, popolarità).
-Le assunzioni di indipendenza tra proprietà tipiche e la scelta di soglie/normalizzazione, pur standard nel framework, possono influire sul ranking.
-Aspetti linguistici avanzati (polisemia, espressioni multi-parola) sono gestiti in modo conservativo. L’estensione multilingua è prevista tra gli sviluppi futuri.
+Il sistema illustrato opera esclusivamente in ambito *content-based* sui testi: non utilizza (al momento) feature audio o metadati strutturati (anno, artista, popolarità). Questa scelta delimita il perimetro del lavoro, impedendo l’uso di segnali complementari che potrebbero migliorare il ranking.
 
-== Struttura della tesi
+Le assunzioni di indipendenza tra proprietà tipiche e la scelta delle soglie e della normalizzazione, pur compatibili con il framework teorico, possono introdurre distorsioni nel calcolo del punteggio finale e influenzare l’ordine delle raccomandazioni. In particolare, valori soglia troppo bassi possono generare ambiguità (inclusione di generi “vicini” ma non pertinenti), mentre soglie troppo elevate rischiano di escludere generi validi o far fallire l’assegnazione.
 
-Cap. 4 – Fondamenti teorici: logiche descrittive, tipicità e chiusura razionale; TCL e l’euristica HEAD/MODIFIER.
-Cap. 5 – TCL e strumenti: razionale e scelte implementative per l’integrazione con CoCoS.
-Cap. 6 – Estrazione dei dati (Genius): raccolta e pre-processing dei testi; pipeline linguistica.
-Cap. 7 – Creazione dei prototipi: dalle frequenze ai gradi di tipicità; tratti rigidi e tipici.
-Cap. 8 – BuildTypicalRigid: materializzazione dei prototipi in input per CoCoS/TCL.
-Cap. 9 – Preprocessing CoCoS: preparazione delle coppie HEAD/MODIFIER e generazione degli scenari.
-Cap. 10 – CoCoS: selezione degli scenari plausibili; costruzione dei prototipi ibridi cross-genere.
-Cap. 11 – Sistema di raccomandazione: classificatore, ranking e spiegazioni (ancore e scenario).
-Cap. 12 – Risultati: evidenze quantitative e qualitative su riclassificazione e raccomandazioni.
-Cap. 13 – Discussione: punti di forza/limiti, sensibilità a soglie e scelte semantiche.
-Cap. 14 – Conclusioni e sviluppi futuri: multilingua, integrazione di feature audio/metadata, lessici d’intensità e aspetti temporali, studio utente sulle spiegazioni.
+Aspetti linguistici avanzati, come polisemia ed espressioni multi-parola, sono gestiti in modo conservativo e non completamente disambiguati, il che può limitare la pertinenza delle proprietà estratte in contesti complessi.
+
+Infine, il sistema è limitato dal punto di vista linguistico: l’estensione multilingua è prevista solo come sviluppo futuro; attualmente funziona solamente su contenuti in lingua inglese.
+
 
 == Sintesi
 
-DEGARI-Music mostra come tipicità e combinazione di concetti possano sostenere raccomandazioni musicali robuste e spiegabili. I prototipi di genere e degli ibridi cross-genere forniscono tratti interpretabili e riutilizzabili lungo l’intera pipeline (riclassificazione → ranking → spiegazioni). Il sistema apre a estensioni naturali (multilingue, audio, metadati) e a valutazioni su scala con utenti, mantenendo la trasparenza come requisito di progetto.
+*DEGARI-Music* dimostra che tipicità e combinazione concettuale possono supportare raccomandazioni musicali robuste e interpretabili. I prototipi di genere e gli ibridi *cross-genere* forniscono tratti leggibili e riutilizzabili lungo la pipeline (riclassificazione → ranking → spiegazioni). Il sistema è progettato per future estensioni (multilingua, audio, metadati) e valutazioni su scala con utenti reali, mantenendo la trasparenza come fondamento del metodo.
