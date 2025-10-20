@@ -68,31 +68,24 @@ multilingua, feature audio e apprendimento dei pesi.
 #include "../chapters/4.FondamentiTeorici.typ"
 #pagebreak(weak: true)
 
-//Questo capitolo l'ho riassunto cosi ma dentro lo chiamerei Probabilità per la combinazione: il framework TCL e gli strumenti
 #include "../chapters/5.TCLeStrumenti.typ"
 #pagebreak(weak: true)
 
-//Questo l'ho chiamo poi Estrazione e pre-processing dei dati (Genius)
 #include "../chapters/6.EstrazioneDeiDatiGenius.typ"
 #pagebreak(weak: true)
 
-//qua a me piace così senza citare modulo nel titolo
 #include "../chapters/7.CreazioneDeiPrototipi.typ"
 #pagebreak(weak: true)
 
-//qua l'8 è da miglioare
 #include "../chapters/8.BuildTypicalRigid.typ"
 #pagebreak(weak: true)
 
-//anche qua serve il titolo migliore dimmelo
 #include "../chapters/9.PreprocessingCocos.typ"
 #pagebreak(weak: true)
 
-//lascerei appunto separato
 #include "../chapters/11.SistemaDiRaccomandazione.typ"
 #pagebreak(weak: true)
 
-//da qui in poi dimmi se manca altro
 #include "../chapters/12.Risultati.typ"
 #pagebreak(weak: true)
 
