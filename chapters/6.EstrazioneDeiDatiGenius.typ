@@ -1,9 +1,9 @@
 = Estrazione e pre-processing dei dati (Genius)
 
-In questo capitolo si descrivono la raccolta e la preparazione dei dati testuali (testi e metadati) da *Genius*, l’uso del client Python `lyricsgenius` per l’accesso all’API e uno script di *enrichment* per stimare indici di ripetizione e derivare tag ausiliari.
+In questo capitolo vengono descritte la raccolta e la preparazione dei dati testuali (testi e metadati) da *Genius*, l’uso del client Python `lyricsgenius` per l’accesso all’API e uno script di *enrichment* per stimare indici di ripetizione e derivare tag ausiliari.
 
 == Accesso all’API Genius e gestione del token
-Per il recupero o l’integrazione dei testi si utilizza `lyricsgenius`, un client Python che interfaccia la *Developer API* (`api.genius.com`) e la *Public API*. L’accesso autenticato richiede un *access token* impostato come variabile d’ambiente `GENIUS_TOKEN` (token non versionato nel codice). In fase di istanziazione (`Genius(...)`) sono configurati timeout e rate-limit; il codice gestisce retry su errori temporanei (ad es. HTTP 429) ed evita duplicati per brano/ID.
+Per il recupero o l’integrazione dei testi viene utilizzato `lyricsgenius`, un client Python che interfaccia la *Developer API* (`api.genius.com`) e la *Public API*. L’accesso autenticato richiede un *access token* impostato come variabile d’ambiente `GENIUS_TOKEN` (token non versionato nel codice). In fase di istanziazione (`Genius(...)`) sono configurati timeout e rate-limit; il codice gestisce retry su errori temporanei (ad es. HTTP 429) ed evita duplicati per brano/ID.
 
 == Raccolta dei brani: criteri e formato di output
 La raccolta è guidata da una lista di brani per genere (rap, metal, rock, pop, trap, reggae, rnb, country). Per ciascun brano si persiste, quando disponibile, un record nel JSON unico `descr_music_GENIUS.json` con i campi principali:
@@ -45,5 +45,5 @@ Questi segnali alimentano le *proprietà tipiche* utilizzate da *TCL/CoCoS* nei 
 
 == Nota sulla variante “extended”
 
-È stata sperimentata una variante *extended* che, a partire dai prototipi per brano e dai profili *typical/rigid*, genera per ogni canzone un JSON dedicato (piano di struttura/strumentazione, focus lirico, *lyrics*).  
+È stata sperimentata una variante *extended* che, a partire dai prototipi per brano e dai profili *typical/rigid*, genera per ogni canzone un *JSON dedicato* (piano di struttura/strumentazione, focus lirico, *lyrics*).  
 Per semplicità di integrazione nella pipeline, nella versione finale è stato adottato il JSON unico; la variante è mantenuta come utilità per analisi qualitative.

@@ -1,6 +1,6 @@
 = Conclusioni e sviluppi futuri
 
-Chiudiamo la tesi riassumendo i contributi principali, i risultati emersi e le direzioni che riteniamo più promettenti.
+Chiudiamo il lavoro riassumendo i contributi principali, i risultati emersi e le possibili direzioni più promettenti da intraprendere.
 
 == Conclusioni
 

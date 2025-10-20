@@ -1,6 +1,6 @@
 = Discussione
 
-Inquadriamo i risultati alla luce della pipeline (prototipi → CoCoS → recommender), discutendo criticità, confronto con approcci affini e implicazioni d’uso.
+In questo capitolo inquadriamo i risultati alla luce della pipeline (prototipi → CoCoS → recommender), discutendo criticità, confronto con approcci affini e implicazioni d’uso.
 
 == Dove il sistema fallisce (e perché)
 

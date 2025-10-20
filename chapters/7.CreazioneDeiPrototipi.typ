@@ -37,7 +37,7 @@ L’`ID` dell’istanza determina il nome del file (sanificato per il filesystem
 == Esempio sintetico
 Estratto (rap, *Rap God*):  
 `rap: 0.645 · lookin: 0.627 · god: 0.624 · feel: 0.615 · ...`  
-(La lista completa è nel file generato in `music_for_cocos`.)
+(La lista completa è nel file generato nella cartella `music_for_cocos`.)
 
 == Considerazioni implementative
 - *Robustezza.* Se *TreeTagger* non è disponibile, il modulo prosegue con tokenizzazione + stopword (senza lemma/POS).  
