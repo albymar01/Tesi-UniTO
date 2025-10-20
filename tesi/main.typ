@@ -83,6 +83,9 @@ multilingua, feature audio e apprendimento dei pesi.
 #include "../chapters/9.PreprocessingCocos.typ"
 #pagebreak(weak: true)
 
+#include "../chapters/10.CoCos.typ"
+#pagebreak(weak: true)
+
 #include "../chapters/11.SistemaDiRaccomandazione.typ"
 #pagebreak(weak: true)
 

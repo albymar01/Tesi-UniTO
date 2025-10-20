@@ -35,14 +35,14 @@ L’ordine `rigid → T(modifier) → T(head)` è coerente con il ruolo *HEAD/MO
 
 - *Batch su tutte le coppie (H ≠ M) – PowerShell:*
 
-genres = ＠("rap","metal","rock","pop","trap","reggae","rnb","country")
+`genres = ＠("rap","metal","rock","pop","trap","reggae","rnb","country")
 foreach (h in genres) {
   foreach (m in genres) {
     if (h -ne m) {
       python cocos_preprocessing.py h m
     }
   }
-}
+}`
 
 == Formato del file `H_M.txt` (esempi)
 

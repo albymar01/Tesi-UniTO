@@ -5,74 +5,74 @@ Chiudiamo la tesi riassumendo i contributi principali, i risultati emersi e le d
 == Conclusioni
 
 Contributo metodologico.
-Abbiamo mostrato che una pipeline leggera, interamente spiegabile, può supportare la combinazione concettuale di generi musicali:
+Abbiamo mostrato che una pipeline leggera e spiegabile può supportare la combinazione concettuale di generi musicali:
 
 raccolta ed enrichment dei testi da Genius con stima della ripetizione;
 
 prototipi per brano con pesi normalizzati;
 
-costruzione di profili typical/rigid per macro-genere;
+costruzione di profili tipiche/rigide per macro-genere;
 
 preprocessing Head/Modifier e combinazione con CoCoS (scenari pesati in stile TCL);
 
-raccomandatore che classifica e spiega i suggerimenti sulla base dei tratti ereditati dallo scenario selezionato.
+recommender che classifica e spiega i suggerimenti sulla base dei tratti ereditati dallo scenario selezionato.
 
 Trasparenza.
-Ogni raccomandazione è accompagnata da: rigid rispettate, tipiche attivate e score di scenario. Questo consente auditabilità e controllo fine (es. agendo sulle soglie o sul ruolo Head/Modifier).
+Ogni raccomandazione è accompagnata da rigide rispettate, tipiche attivate e score di scenario. Questo abilita auditabilità e controllo fine (ad es. agendo su soglie o sul ruolo Head/Modifier).
 
 Risultati pratici.
-La pipeline ha prodotto prototipi ibridi plausibili per molte coppie di generi, con copertura piena nel classificatore e spiegazioni coerenti con i profili. Dove i profili sono ricchi, CoCoS propone più scenari sensati; dove sono poveri, prevalgono segnali trasversali (ad es. high_repetition), confermando l’importanza della cura delle typical distintive.
+La pipeline ha prodotto prototipi ibridi plausibili per molte coppie di generi, con copertura piena in diversi casi e spiegazioni coerenti con i profili. Dove i profili sono ricchi, CoCoS propone più scenari sensati; dove sono poveri, emergono soprattutto segnali trasversali (es. "high_repetition"), evidenziando l’importanza di tipiche distintive.
 
 Limiti.
-(i) dipendenza dalla qualità di testi/metadata e dalle mappe SUB2MACRO;
-(ii) ipotesi di indipendenza dei pesi tipici nello scoring degli scenari;
+(i) dipendenza dalla qualità di testi/metadata;
+(ii) ipotesi di indipendenza dei pesi tipici nello scoring;
 (iii) ruoli Head/Modifier talvolta troppo rigidi;
-(iv) scarsa multilingua: l’intera pipeline è tarata sull’inglese (tokenizzazione, stoplist, tagger).
+(iv) multilingua non ancora supportata end-to-end (tokenizzazione, stoplist, lemmatizzazione focalizzate sull’inglese).
 
 == Sviluppi futuri
 
 Multilingua (priorità).
 
-Portare l’estrazione e i prototipi a più lingue (italiano in primis): tokenizzazione, stoplist e lemmatizzazione per lingua;
+Portare estrazione e prototipi a più lingue (italiano in primis): tokenizzazione, stoplist e lemmatizzazione per lingua;
 
 normalizzazione cross-lingua delle proprietà (sinonimi, varianti morfologiche) e mapping dei tag;
 
-scelta dinamica del modello in base alla lingua del brano e possibilità di mix multilingua.
+scelta dinamica della lingua del brano ed eventuale combinazione multilingua.
 
 Feature audio e metadata strutturati.
 
-Integrare deskriptor audio (tempo stimato, energy, spectral features) e campi strutturati (anno, provenienza, mood editoriali) come typical aggiuntive o vincoli rigid;
+Integrare descrittori audio (tempo, energia, spettrali) e campi strutturati (anno, provenienza, mood editoriali) come tipiche aggiuntive o rigide;
 
-fusione tardo/early con pesi apprendibili dal feedback.
+fusione early/late con pesi apprendibili dal feedback.
 
 Apprendimento dei pesi e dei vincoli.
 
-Stimare automaticamente gradi typical e regole di co-occorrenza/antagonismo tra proprietà (dipendenze) a partire dai dati;
+Stimare automaticamente gradi tipici e piccole regole di co-occorrenza/antagonismo tra proprietà;
 
 active learning per far correggere al curatore gli scenari e aggiornare i profili.
 
 Arricchimento lessicale e mapping di genere.
 
-Ampliare DOMAIN_WHITELIST e SUB2MACRO, includendo slang e sottogeneri emergenti;
+Ampliare le liste di termini rilevanti (inclusi slang e sottogeneri emergenti);
 
-usare embedding per consolidare sinonimi e ridurre la frammentazione del vocabolario.
+usare rappresentazioni distribuzionali per consolidare sinonimi e ridurre la frammentazione del vocabolario.
 
 CoCoS più espressivo.
 
-Scenari con gruppi coerenti di feature (es. se trap allora 808) e penalità per combinazioni incoerenti;
+Scenari con gruppi coerenti di feature (es. “se trap, preferisci pattern ritmici ricorrenti”) e penalità per combinazioni incoerenti;
 
 plasticità del ruolo Head/Modifier e scelta automatica del verso più naturale (H/M o M/H) per ogni coppia.
 
 Valutazione su utenti.
 
-Studio utente e A/B test sulle spiegazioni: misurare fiducia, utilità percepita e qualità del discovery;
+Studio utente e A/B test sulle spiegazioni per misurare fiducia, utilità percepita e qualità del discovery;
 
-metriche di diversità/novità nelle playlist ibride e confronto con baseline neurali o collaborative.
+metriche di diversità/novità per playlist ibride e confronto con baseline neurali o collaborative.
 
 Tooling e riproducibilità.
 
-Report automatici di copertura, proprietà mai attivate e bottleneck di scenario;
+Report automatici di copertura (brani non classificati, proprietà mai attivate, rigide bloccanti);
 
-packaging della pipeline con config condivisibili e seed fissati per esperimenti ripetibili.
+packaging della pipeline con configurazioni condivisibili e seed fissati per esperimenti ripetibili.
 
-In sintesi, la tesi dimostra che prototipi + combinazione tipica è un paradigma efficace e trasparente per generare crossover musicali spiegabili. Con multilingua, feature audio e apprendimento dei pesi, il sistema può diventare uno strumento pratico di curation e discovery per playlist, editoria e creatività assistita.
+In sintesi, la tesi mostra che prototipi + combinazione tipica è un paradigma efficace e trasparente per generare crossover musicali spiegabili. Con multilingua, feature audio e apprendimento dei pesi, il sistema può evolvere in uno strumento pratico di curation e discovery per playlist, editoria e creatività assistita.
