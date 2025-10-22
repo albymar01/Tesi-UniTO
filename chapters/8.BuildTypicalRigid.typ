@@ -1,7 +1,7 @@
 
 = Costruzione delle proprietà tipiche e rigide (Modulo 2)
 
-In questo capitolo descriviamo come il modulo `BuildTypicalRigid.py` costruisce, per ciascun macro-genere, due insiemi di proprietà: *rigide* (vincoli non derogabili) e *tipiche* (inclusioni con grado), a partire dal JSON dei brani generato nel preprocessing di Genius. Il risultato alimenta il preprocessing di *CoCoS* e la successiva combinazione *HEAD/MODIFIER*.
+Passiamo adesso al secondo modulo dove `BuildTypicalRigid.py` costruisce, per ciascun macro-genere, due insiemi di proprietà: *rigide* (vincoli non derogabili) e *tipiche* (inclusioni con grado), a partire dal JSON dei brani generato nel preprocessing di Genius. Il risultato alimenta il preprocessing di *CoCoS* e la successiva combinazione *HEAD/MODIFIER*.
 
 == Scopo e dati di ingresso
 - *Scopo.* Per ogni macro-genere si producono due file: `typical/<genere>.txt` (righe `proprieta: peso`) e `rigid/<genere>.txt` (una proprietà per riga).

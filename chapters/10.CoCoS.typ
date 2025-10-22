@@ -1,7 +1,7 @@
 
 = CoCoS: combinazione e scenari (Modulo 3b)
 
-In questo capitolo descriviamo l’esecuzione di *CoCoS* sul set di coppie *HEAD/MODIFIER* generato dal preprocessing. L’obiettivo è selezionare gli scenari migliori e scrivere il prototipo del concetto ibrido (es. *rock–trap*).
+*CoCoS* elabora le coppie *HEAD/MODIFIER* generato nel passo precedente. L’obiettivo è selezionare gli scenari migliori e scrivere il prototipo del concetto ibrido (es. *rock–trap*).
 
 == Input e avvio
 

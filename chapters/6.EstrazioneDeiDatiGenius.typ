@@ -1,6 +1,6 @@
 = Estrazione e pre-processing dei dati (Genius)
 
-In questo capitolo vengono descritte la raccolta e la preparazione dei dati testuali (testi e metadati) da *Genius*, l’uso del client Python `lyricsgenius` per l’accesso all’API e uno script di *enrichment* per stimare indici di ripetizione e derivare tag ausiliari.
+Nel seguente capitolo vengono descritte la raccolta e la preparazione dei dati testuali (testi e metadati) da *Genius*, l’uso del client Python `lyricsgenius` per l’accesso all’API e uno script di *enrichment* per stimare indici di ripetizione e derivare tag ausiliari.
 
 == Accesso all’API Genius e gestione del token
 Per il recupero o l’integrazione dei testi viene utilizzato `lyricsgenius`, un client Python che interfaccia la *Developer API* (`api.genius.com`) e la *Public API*. L’accesso autenticato richiede un *access token* impostato come variabile d’ambiente `GENIUS_TOKEN` (token non versionato nel codice). In fase di istanziazione (`Genius(...)`) sono configurati timeout e rate-limit; il codice gestisce retry su errori temporanei (ad es. HTTP 429) ed evita duplicati per brano/ID.

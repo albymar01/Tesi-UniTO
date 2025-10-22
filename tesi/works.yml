@@ -23,12 +23,6 @@ genius:
   date: 2025
   note: "Sorgente testuale e metadati dei brani."
 
-scrapy:
-  type: Misc
-  title: "Scrapy"
-  url: "https://docs.scrapy.org/en/latest/"
-  date: 2025
-  note: "Framework Python per web crawling e scraping."
 
 lyricsgenius:
   type: Misc

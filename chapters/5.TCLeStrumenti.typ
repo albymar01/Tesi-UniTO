@@ -1,6 +1,6 @@
 = Probabilità e strumenti per la combinazione concettuale (TCL e CoCoS)
 
-In questo capitolo approfondiamo (i) la componente probabilistica di *TCL* e (ii) il tool *CoCoS* che implementa la combinazione concettuale basata su tipicità, presentando anche sistemi affini che lo riutilizzano.
+Approfondiamo adesso invece la componente probabilistica di *TCL* e il tool *CoCoS* che implementa la combinazione concettuale basata su tipicità, presentando anche sistemi affini che lo riutilizzano.
 
 == Inclusioni probabilistiche e scenari in TCL
 

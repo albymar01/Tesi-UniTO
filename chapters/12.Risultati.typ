@@ -1,7 +1,7 @@
 
 = Risultati
 
-In questo capitolo sintetizziamo gli esiti della pipeline: prototipi ibridi → classificatore/recommender per ciascuna coppia *HEAD/MODIFIER*. Gli output sono file `H_M_recommendations.json` che, per ogni coppia, riportano: categoria, prototipo (proprietà selezionate), *ancore* (rigide/forti), lista dei brani consigliati con le proprietà effettivamente colpite e i contatori `classified`/`total`.
+I risultati vengono analizzati alla luce degli esiti della pipeline: prototipi ibridi → classificatore/recommender per ciascuna coppia *HEAD/MODIFIER*. Gli output sono file `H_M_recommendations.json` che, per ogni coppia, riportano: categoria, prototipo (proprietà selezionate), *ancore* (rigide/forti), lista dei brani consigliati con le proprietà effettivamente colpite e i contatori `classified`/`total`.
 
 == Metriche e formato
 

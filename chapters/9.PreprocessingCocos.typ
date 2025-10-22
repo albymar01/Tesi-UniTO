@@ -1,7 +1,7 @@
 
 = Preprocessing CoCoS: costruzione dei file H_M (Modulo 3a)
 
-In questo capitolo si descrive il preprocessing che, a partire dai profili per genere (cartelle `typical/` e `rigid/` prodotte dal Modulo 2), costruisce i file di input per *CoCoS* in `prototipi_music/`, uno per ogni coppia *Head–Modifier* (`H_M.txt`).
+Il preprocessing genera i file di input per CoCoS partendo dai profili per genere prodotti nel Modulo 2 (`typical/` e `rigid/`), costruisce i file di input per *CoCoS* in `prototipi_music/`, uno per ogni coppia *Head/Modifier* (`H_M.txt`).
 
 == Scopo, input e percorsi
 
