@@ -19,8 +19,20 @@ multilingua, feature audio e apprendimento dei pesi.
 
 // ---------- Ringraziamenti ----------
 #let acknowledgments = [
-  TO DO
+Desidero ringraziare innanzitutto il professor Gian Luca Pozzato per la disponibilità e per avermi dato la possibilità 
+di lavorare su questo progetto interessante, nonostante i tempi stretti con le scadenze 
+
+Un ringraziamento profondo  ai miei genitori, per il sostegno costante e la pazienza dimostrata in questi anni, 
+soprattutto nei momenti in cui non ero sicuro del percorso che stavo affrontando.  
+La loro presenza mi ha permesso di superare le difficoltà e di arrivare a questo traguardo.
+
+Ringrazio anche i miei amici e colleghi per i confronti, le risate e il supporto quotidiano, dentro e fuori l’università.  
+Il loro incoraggiamento ha reso questo percorso più leggero e ricco di soddisfazioni.
+
+Infine, grazie a tutte le persone che, anche solo con una parola o un gesto, mi hanno accompagnato lungo il cammino e mi hanno aiutato ad arrivare fin qui.
 ]
+
+
 
 // ---------- Mostra il template ----------
 #show: template.with(
