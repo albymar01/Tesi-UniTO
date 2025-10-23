@@ -14,3 +14,7 @@ categories = ["thesis"]
 path = "template"
 entrypoint = "main.typ"
 thumbnail = "thumbnail.png"
+
+[project]
+main = "main.typ"
+

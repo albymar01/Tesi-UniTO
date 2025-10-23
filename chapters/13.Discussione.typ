@@ -1,59 +1,49 @@
-
 = Discussione
 
-In questo capitolo inquadriamo i risultati alla luce della pipeline (prototipi → *CoCoS* → recommender), discutendo criticità, confronto con approcci affini e implicazioni d’uso.
+Questo capitolo interpreta i risultati alla luce della pipeline (prototipi → *CoCoS* → recommender), evidenziando limiti, confronto con alternative e implicazioni d’uso. Funziona da ponte logico tra *Risultati* e *Conclusioni*.
 
 == Dove il sistema fallisce (e perché)
 
-*Propagazione degli errori.* Ogni modulo eredita i vincoli del precedente: se i profili *tipiche/rigide* per genere sono scarsi o sbilanciati, *CoCoS* produce pochi scenari (o nessuno); il recommender, a valle, mostra copertura ridotta o suggerimenti troppo generici.
+*Propagazione degli errori.* Ogni modulo eredita i vincoli del precedente: profili *tipiche/rigide* scarsi o sbilanciati generano pochi scenari e bassa copertura del recommender.
 
-*Dominanza di segnali trasversali.* Proprietà “orizzontali” (es. `high_repetition`) migliorano la copertura ma, se gli altri tratti sono deboli, allargano troppo la platea e riducono la specificità di genere. *Rimedi pratici:*
-- aumentare `MAX_ATTRS` *solo* quando esistono *tipiche* non trasversali da ereditare;
-- rafforzare nei profili alcune *tipiche* distintive dell’*HEAD*;
-- alzare moderatamente le soglie del recommender (`--min-match-rate`, `--min-anchors`).
+*Dominanza di segnali trasversali.* Tratti “orizzontali” (es. `high_repetition`) allargano la platea ma riducono la specificità se mancano *tipiche* distintive. *Rimedi:* (i) aumentare `MAX_ATTRS` solo quando esistono *tipiche* non trasversali, (ii) rinforzare *tipiche* caratterizzanti dell’*HEAD*, (iii) alzare moderatamente `--min-match-rate` e `--min-anchors` nel recommender.
 
-*Assunzione di indipendenza.* Lo *scenario score* tratta i pesi tipici come indipendenti (prodotto dei `p` delle tipiche attive). Se due proprietà sono fortemente correlate (es. `trap` e la presenza di pattern ritmici ricorrenti), lo scenario può sovrastimarle. *Possibili correzioni:* piccole regole di co-occorrenza/alternanza tra proprietà o gruppi di feature con controllo congiunto.
+*Assunzione di indipendenza.* Lo *scenario score* usa il prodotto dei `p` delle *tipiche* attive; proprietà fortemente correlate possono risultare sovrastimate. *Mitigazione:* semplici regole di co‑occorrenza/alternanza tra gruppi di feature.
 
-*Euristica `HEAD/MODIFIER`.* La priorità semantica all’*HEAD* è utile ma rigida: alcune coppie (es. `pop–rnb`) possono richiedere simmetria o uno *switch* dinamico dei ruoli. *Estensioni possibili:* parametro di “plasticità” dell’asimmetria oppure scelta `H/M` guidata dai punteggi di scenario.
+*Euristica `HEAD/MODIFIER`.* La priorità semantica all’*HEAD* è utile ma rigida: coppie come `pop–rnb` possono richiedere simmetria o *switch* dinamico dei ruoli. *Estensioni:* parametro di “plasticità” dell’asimmetria oppure scelta `H/M` guidata dallo score di scenario.
 
-*Rumore testuale.* Tokenizzazione/stopword inglesi e qualità eterogenea dei testi di Genius introducono: (i) sinonimia superficiale (se manca la lemmatizzazione), (ii) lessico di dominio non intercettato quando fuori dalle liste utili, (iii) occasionali etichette/markup residui. *Mitigazioni:* ampliare le liste di termini rilevanti, migliorare la pulizia del markup e usare, quando disponibile, lemmatizzatori stabili.
+*Rumore testuale.* Tokenizzazione/stopword inglesi e qualità variabile dei testi introducono sinonimia superficiale (senza lemmatizzazione), lessico di dominio fuori lista e residui di markup. *Rimedi:* ampliare liste/lessici, pulizia markup, lemmatizzazione quando disponibile.
 
 == Confronto con approcci affini
 
-*Bag-of-words / tf–idf.* Offrono buone similitudini, ma non distinguono tra tipicità difettibili e vincoli rigidi; non c’è ruolo `HEAD/MODIFIER` e la sospendibilità delle proprietà non è modellata.
+*Bag‑of‑words / tf–idf.* Buone similitudini ma nessuna distinzione tra *tipiche* (difettibili) e *rigide*; manca il ruolo `HEAD/MODIFIER` e la sospendibilità dei tratti.
 
-*Collaborative filtering / embedding neurali.* Predicono bene preferenze e vicinanze, ma la spiegabilità è più bassa e la combinazione concettuale richiede workaround (intersezioni di vicini, ecc.). Qui il prototipo ibrido è esplicito e auditabile (scenari + pesi).
+*Collaborative filtering / embedding neurali.* Ottime previsioni di preferenza, spiegabilità ridotta; la combinazione concettuale richiede workaround. Qui il prototipo ibrido è esplicito e auditabile (scenari + pesi).
 
-*TCL/CoCoS.* Rispetto a regole logiche o fuzzy tradizionali, aggiunge: (i) priorità e sospendibilità delle *tipiche*, (ii) selezione per scenari con punteggi, (iii) ruolo `HEAD/MODIFIER`. Il rovescio della medaglia è una maggiore sensibilità alla qualità dei profili e all’ipotesi d’indipendenza.
+*TCL/CoCoS.* Rispetto a logiche crisp/fuzzy tradizionali offre (i) priorità e sospendibilità delle *tipiche*, (ii) selezione di scenari con punteggi, (iii) ruolo `HEAD/MODIFIER`. Controparte: maggiore sensibilità alla qualità dei profili e all’ipotesi d’indipendenza.
 
 == Implicazioni pratiche
 
-*Trasparenza e controllo.* Ogni suggerimento eredita *ancore* e *matches* del prototipo: il curatore può vedere quali tratti governano le scelte e regolare soglie/elenco proprietà per pilotare le proposte.
+*Trasparenza e controllo.* Ogni suggerimento espone *ancore* e *matches* del prototipo; il curatore può regolare soglie e liste proprietà con impatto prevedibile.
 
-*Discovery di crossover.* Segnali trasversali (hook/ritornelli) fanno emergere brani “lontani” ma plausibili rispetto al concetto ibrido: utile per playlist tematiche, format editoriali e ideazione creativa.
+*Discovery di crossover.* Segnali trasversali (hook/ritornelli) fanno emergere brani “lontani” ma plausibili: utile per playlist tematiche, format editoriali e ideazione creativa.
 
-*Cura dei profili.* Aggiungere poche *tipiche* distintive per genere e mantenere *rigide* poche ma forti migliora la qualità degli scenari senza complicare la pipeline.
+*Cura dei profili.* Poche *rigide* forti e 2–3 *tipiche* distintive per genere migliorano gli scenari senza complicare la pipeline.
 
 == Minacce alla validità
 
-*Copertura dati limitata.* Pochi esempi per genere riducono la stabilità delle *tipiche/rigide*.
-*Bias di sorgente.* Testi/metadata di Genius riflettono cataloghi e pratiche editoriali specifiche.
-*Scelte di iperparametri.* `MAX_ATTRS` e le soglie del recommender influiscono direttamente sulla presenza/assenza di scenari e sulla copertura.
+*Copertura dati.* Pochi esempi per genere riducono la stabilità di *tipiche/rigide* e lo score scenari.
+*Bias di sorgente.* Testi/metadata di Genius riflettono pratiche editoriali specifiche.
+*Iperparametri.* `MAX_ATTRS`, `--min-match-rate`, `--min-anchors` influenzano direttamente scenari e copertura.
 
 == Cosa migliorare subito
 
-*Rinforzare la specificità.* Arricchire i profili con 2–3 *tipiche* non trasversali per genere (riduce la dipendenza da `high_repetition`).
-
-*Regole di coerenza leggere.* Aggiungere poche regole di preferenza/evitamento tra proprietà chiaramente correlate o incompatibili.
-
-*Selezione scenari più soft.* Oltre al migliore, mantenere i *top-k* scenari e lasciare al recommender un rimescolamento pesato per diversificare le playlist.
-
-*Diagnostica di copertura.* Report automatico: brani non classificati per coppia, proprietà mai attivate, *rigide* che annullano gli scenari.
-
-*Arricchimento linguistico.* Ampliare liste di termini e mappature verso macro-tratti; abilitare la lemmatizzazione quando possibile.
+*Specificità.* Arricchire i profili con *tipiche* non trasversali per genere (riduce la dipendenza da `high_repetition`).  
+*Coerenza leggera.* Poche regole di preferenza/evitamento tra proprietà correlate/incompatibili.  
+*Selezione scenari più soft.* Conservare i *top‑k* scenari e demandare diversificazione al recommender con pesi.  
+*Diagnostica.* Report automatico: brani non classificati per coppia, proprietà mai attivate, *rigide* che annullano scenari.  
+*Arricchimento linguistico.* Liste termini e mappature verso macro‑tratti; lemmatizzazione quando possibile.
 
 == Takeaway
 
-Il paradigma prototipi + combinazione fornisce spiegazioni locali e controllo globale con pochi iperparametri.
-La qualità dei profili *tipiche/rigide* è la leva principale: quando sono ricchi, gli scenari sono sensati e le raccomandazioni coerenti; quando sono poveri, prevalgono i segnali trasversali.
-Il sistema è adatto a *discovery* e *curation* di crossover, e può integrarsi con modelli neurali/CF come *re-ranker*, mantenendo però tracciabilità delle scelte.
+Il paradigma *prototipi + combinazione* offre spiegazioni locali e controllo globale con pochi iperparametri. La qualità di *tipiche/rigide* è la leva principale: profili ricchi → scenari sensati e raccomandazioni coerenti; profili poveri → prevalgono segnali trasversali. Il sistema è adatto a *discovery* e *curation* di crossover e può integrare modelli neurali/CF come *re‑ranker*, mantenendo tracciabilità delle scelte.

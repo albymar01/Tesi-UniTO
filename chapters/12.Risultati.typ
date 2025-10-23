@@ -29,13 +29,22 @@ In altri run o con profili più scarsi, la copertura può ridursi (es. ~79% su c
 === Trap–Metal (HEAD = trap, MODIFIER = metal)
 
 `Scenario selezionato (da "scenarios_json/trap_metal"):`  
-``{ "metal": 0.95, "trap": 0.95, "high_repetition": 0.618, "＠scenario_score": 3.5695680000000003 }``  
+``{ 
+  "metal": 0.95, 
+  "trap": 0.95, 
+  "high_repetition": 0.618, 
+  "＠scenario_score": 3.5695680000000003 }``  
 Il prototipo ibrido enfatizza `trap`, `metal`, `high_repetition`. Le *ancore* attive sono `["trap","metal","high_repetition"]`.
 
-＠＠FIG-TRAP-METAL-SCENARIO＠＠   // (immagine/json dello scenario consigliato)
+
+
+#image("../Immagini/ScenarioTrapMetal.png", width: 60%)
+
 
 Top-5 brani riclassificati (*trap–metal*, da `trap_metal_recommendations.json`):
+
 1) `Rap God` — *Eminem* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
+
 2) `Lose Yourself` — *Eminem* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
 3) `Mockingbird` — *Eminem* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
 4) `Not Like Us` — *Kendrick Lamar* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
@@ -49,13 +58,19 @@ Top-5 brani riclassificati (*trap–metal*, da `trap_metal_recommendations.json`
 === Metal–Trap (HEAD = metal, MODIFIER = trap)
 
 `Scenario selezionato (da "scenarios_json/metal_trap"):`  
-``{ "metal": 0.95, "trap": 0.95, "high_repetition": 0.618, "＠scenario_score": 3.5695680000000003 }``  
+``{ "metal": 0.95, 
+"trap": 0.95, 
+"high_repetition": 0.618, 
+"＠scenario_score": 3.5695680000000003 }``  
+
 Lo scenario coincide con la direzione precedente. Anche qui `prototype = ["high_repetition","trap","metal"]` e `anchors = ["trap","metal","high_repetition"]`.
 
-＠＠FIG-METAL-TRAP-SCENARIO＠＠   // (immagine/json dello scenario consigliato)
+#image("../Immagini/ScenarioTrapMetal2.png", width: 60%)
 
 Top-5 brani riclassificati (*metal–trap*, da `metal_trap_recommendations.json`):
+
 1) `Rap God` — *Eminem* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
+
 2) `Lose Yourself` — *Eminem* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
 3) `Mockingbird` — *Eminem* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
 4) `Not Like Us` — *Kendrick Lamar* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
@@ -68,15 +83,28 @@ Scenario e punteggio sono *simmetrici*. La riclassificazione concreta è però p
 
 *Reggae→Rap (HEAD = reggae, MODIFIER = rap).*  
 CoCoS propone più scenari coerenti, ad es.:  
-``{ "reggae": 0.95, "high_repetition": 0.8, "hook_repetition": 0.6, "＠scenario_score": 7.296000000000001 }``  
-``{ "reggae": 0.95, "high_repetition": 0.6, "＠scenario_score": 7.296000000000001 }``  
-``{ "reggae": 0.95, "high_repetition": 0.8, "catchy_chorus": 0.6, "＠scenario_score": 7.296000000000001 }``  
+``{ "reggae": 0.95, 
+"high_repetition": 0.8, 
+"hook_repetition": 0.6, 
+"＠scenario_score": 7.296000000000001 }``  
+
+``{ "reggae": 0.95, 
+"high_repetition": 0.6, 
+"＠scenario_score": 7.296000000000001 }``  
+
+``{ "reggae": 0.95, 
+"high_repetition": 0.8, 
+"catchy_chorus": 0.6, 
+"＠scenario_score": 7.296000000000001 }``  
+
 Il profilo *reggae* dispone di una proprietà identitaria `reggae: 0.95` (typical) e di *rigid* `high_repetition`, `hook_repetition`: questo consente di preservare l’identità *reggae* come *ancora*, integrando segnali trasversali (`high_repetition`, `hook_repetition`) e, in misura minore, contributi da *rap*.
 
-＠＠FIG-REGGAE-RAP-SCENARI＠＠   // (collage dei tre scenari reggae→rap)
+#image("../Immagini/reggaerap.png", width: 60%)
 
 Top-5 brani riclassificati (*reggae–rap*, da `reggae_rap_recommendations.json`):  
+
 1) `Rap God` — *Eminem* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
+
 2) `Lose Yourself` — *Eminem* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
 3) `Mockingbird` — *Eminem* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
 4) `Not Like Us` — *Kendrick Lamar* — `matches = ["high_repetition"]`, `anchors_hit = ["high_repetition"]`  
@@ -91,7 +119,7 @@ Per questa direzione, CoCoS *non* genera scenari raccomandati. La ragione è str
 - imporre `reggae` come MODIFIER violerebbe il vincolo di preservare l’identità dell’HEAD (che qui non è distinguibile dal solo segnale trasversale `high_repetition`).  
 Di conseguenza, la combinazione decadrebbe a un profilo *quasi generico* di ripetizione/ritornello, che *CoCoS* scarta come scenario ibrido *rap–reggae*.
 
-＠＠BOX-NO-SCENARIO-RAP-REGGAE＠＠   // (screenshot della riga “NO recommended scenarios!”)
+#image("../Immagini/reggaerap.png", width: 60%)
 
 == Coerenza dei suggerimenti con il prototipo
 
@@ -116,13 +144,8 @@ Di conseguenza, la combinazione decadrebbe a un profilo *quasi generico* di ripe
 *Copertura non uniforme.* Dove i profili di genere sono scarsi (poche tipiche/rigide), la selezione può risultare vuota o parziale (casi *NO scenario* in *CoCoS*).
 
 == Sintesi dei risultati
-
 Il recommender preserva le scelte di *CoCoS*: le *ancore* del prototipo ibrido guidano i suggerimenti.  
 I tag di ripetizione (da enrichment) si riflettono nei risultati, favorendo brani con *hook/chorus* marcati anche fuori dal macro-genere dell’*HEAD/MODIFIER*.  
 Con profili più ricchi (più tipiche non trasversali) cresce la precisione semantica e diminuisce la dipendenza da `high_repetition`.
 
-== Indicazioni pratiche per le figure/tabelle
 
-- Sostituire i marker `＠＠FIG-...＠＠` con gli screenshot dei JSON in `scenarios_json/` (*caption* suggerite: “Scenario selezionato per *trap–metal* / *metal–trap* / collage scenari *reggae–rap*”).  
-- Le liste *Top-5* sono in forma testuale; puoi convertirle in tabelle quando preferisci.  
-- Inserire uno *box* con lo screenshot della riga “NO recommended scenarios!” per *rap–reggae*.
