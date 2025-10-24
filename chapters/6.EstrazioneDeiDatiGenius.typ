@@ -7,23 +7,8 @@ Per il recupero o l’integrazione dei testi viene utilizzato `lyricsgenius`, un
 
 == Raccolta dei brani: criteri e formato di output
 La raccolta è guidata da una lista di brani per genere (rap, metal, rock, pop, trap, reggae, rnb, country). Per ciascun brano si persiste, quando disponibile, un record nel JSON unico `descr_music_GENIUS.json` con i campi principali:
-{
-  "ID": "rap_eminem_rap-god_2013_235729",
-  "genius_id": 235729,
-  "source": "genius",
-  "source_url": "https://genius.com/Eminem-rap-god-lyrics",
-  "title": "Rap God",
-  "artist": "Eminem",
-  "album": "Curtain Call 2",
-  "year": "2013",
-  "lyrics": "Testo integrale ...",
-  "tags": ["high_repetition", "rap"],
-  "moods": [ ],
-  "instruments": [ ],
-  "subgenres": ["rap"],
-  "contexts": [ ],
-  "repetition": { "rep_ratio": 0.576, "has_chorus_like": 0, "has_hook_like": 0 }
-}
+
+#image("../Immagini/Eminem.png", width: 60%)
 
 I campi `title/artist/album/year` provengono da *Genius*; `lyrics` contiene il testo integrale (se presente). La chiave `tags` è usata anche per i segnali di ripetizione derivati nel pre-processing (sezione seguente). Sono previsti controlli di *deduplicazione* per `genius_id` e normalizzazione di `title/artist` (minuscolizzazione, trimming) per gestire alias e varianti.
 
@@ -42,6 +27,15 @@ In base a questi indici si arricchisce `tags` con:
 La soglia `0.25` è scelta in modo conservativo dopo ispezioni qualitative su più generi: valori inferiori generano troppi falsi positivi su testi prolissi, mentre valori troppo alti escludono casi con ritornelli brevi.  
 L’arricchimento è *idempotente* e il JSON viene riscritto con *commit atomico* (scrittura temporanea e rinomina del file finale).  
 Questi segnali alimentano le *proprietà tipiche* utilizzate da *TCL/CoCoS* nei capitoli successivi.
+
+== Corpus e generi analizzati
+
+Il dataset risultante comprende *48 brani* complessivi, suddivisi in *8 macro-generi* principali:
+`country`, `metal`, `pop`, `rap`, `reggae`, `rnb`, `rock` e `trap`.
+Per ciascun genere sono stati selezionati *6 brani rappresentativi* (con testi completi in lingua inglese),
+ottenuti automaticamente tramite API *Genius* e normalizzati per lunghezza e formattazione.
+Questo corpus costituisce la base per la costruzione dei prototipi e per le successive combinazioni *HEAD/MODIFIER*.
+
 
 == Nota sulla variante “extended”
 

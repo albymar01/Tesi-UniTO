@@ -45,6 +45,10 @@ foreach ($h in $genres) {
   }
 }`
 
+== Esempio di file `H_M.txt`
+
+#image("../Immagini/TrapMetal.png", width: 60%)
+
 == Formato del file `H_M.txt` (esempi)
 
 *country–metal*  
@@ -84,11 +88,12 @@ T(head), high_repetition, 0.6
 
 == Note pratiche
 
-- Le *rigide* sono riportate come vincoli duri e saranno sempre rispettate da *CoCoS*.  
+- Le *rigide* sono riportate come _vincoli duri_ e saranno sempre rispettate da *CoCoS*.  
 - I pesi delle *tipiche* sono copiati dai file di genere (range tipico `[0.60, 0.95]`).  
 - È utile generare sia `H_M.txt` sia `M_H.txt`: l’esito dipende dal ruolo *Head/Modifier*.  
 - I percorsi sono centralizzati in `cocos_config.py` (es. `COCOS_DIR` per la destinazione dei file).
 
 == Collegamento al Modulo 3b
 
-I file `H_M.txt` prodotti qui sono consumati da `cocos.py`, che costruisce gli scenari di combinazione, seleziona i *best* e li appende al file (oltre a generare, se richiesto, un JSON con gli scenari raccomandati).
+I file `H_M.txt` costituiscono l’input diretto per il modulo 3b (`cocos.py`), che esegue la combinazione logica con *CoCoS*, genera gli scenari ammessi e li appende ai file di origine insieme ai punteggi.  
+Questa fase chiude la preparazione dei dati e apre la parte di *combinazione concettuale vera e propria* descritta nel capitolo seguente.

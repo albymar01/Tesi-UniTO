@@ -2,7 +2,7 @@
 
 La raccomandazione musicale è ormai comune nelle varie piattaforme di streaming, ma molti sistemi restano opachi, ossia suggeriscono contenuti ma senza chiarirne i criteri alla base delle loro scelte. In ambito accademico e industriale vi è un crescente interesse verso soluzioni content-based e spiegabili, in grado di operare anche in assenza di segnali utente e di giustificare le scelte in modo trasparente. Questa tesi adatta e applica il framework *DEGARI* _(tipicità + combinazione di concetti)_ al dominio musicale, mostrando come prototipi e scenari possano guidare raccomandazioni interpretabili.
 
-Questo lavoro presenta *DEGARI-Music*, un prototipo di sistema di raccomandazione che sfrutta la combinazione di concetti e la tipicità per costruire prototipi di generi (e ibridi _cross-genere_) a partire dai testi e caratteristiche stilistiche dei brani. L’approccio si fonda sul framework logico _TCL (Typicality-based Compositional Logic)_ e sul tool _CoCoS_, adattati al dominio musicale. In sintesi, proprietà _rigide_ e _tipiche_ dei generi vengono estratte dai testi (Genius) e normalizzate; la logica seleziona scenari coerenti e non banali per la combinazione HEAD/MODIFIER; il risultato è un prototipo concettuale impiegato per riclassificare i brani e suggerire contenuti affini, con spiegazioni _ancorate_ ai tratti ereditati e alla _forza_ (punteggio) dello scenario selezionato.
+Questo lavoro presenta *DEGARI-Music*, un prototipo di sistema di raccomandazione che sfrutta la combinazione di concetti e la tipicità per costruire prototipi di generi (e ibridi _cross-genere_) a partire dai testi e caratteristiche stilistiche dei brani. L’approccio si fonda sul framework logico _TCL (Typicality-based Compositional Logic)_ e sul tool _CoCoS_, adattati al dominio musicale. In sintesi, proprietà _rigide_ e _tipiche_ dei generi vengono estratte dai testi (Genius) e normalizzate; la logica seleziona scenari coerenti e non banali per la combinazione _HEAD/MODIFIER_; il risultato è un prototipo concettuale impiegato per riclassificare i brani e suggerire contenuti affini, con spiegazioni _ancorate_ ai tratti ereditati e alla _forza_ (punteggio) dello scenario selezionato.
 
 == Obiettivi
 
@@ -48,9 +48,27 @@ Il sistema illustrato opera esclusivamente in ambito *content-based* sui testi: 
 
 Le assunzioni di indipendenza tra proprietà tipiche e la scelta delle soglie e della normalizzazione, pur compatibili con il framework teorico, possono introdurre distorsioni nel calcolo del punteggio finale e influenzare l’ordine delle raccomandazioni. In particolare, valori soglia troppo bassi possono generare ambiguità (inclusione di generi “vicini” ma non pertinenti), mentre soglie troppo elevate rischiano di escludere generi validi o far fallire l’assegnazione.
 
-Aspetti linguistici avanzati, come polisemia ed espressioni multi-parola, sono gestiti in modo conservativo e non completamente disambiguati, il che può limitare la pertinenza delle proprietà estratte in contesti complessi.
+Aspetti linguistici più avanzati, come polisemia ed espressioni multi-parola, sono gestiti in modo conservativo e non completamente disambiguati, il che può limitare la pertinenza delle proprietà estratte in contesti complessi.
 
 Infine, il sistema è limitato dal punto di vista linguistico: l’estensione multilingua è prevista solo come sviluppo futuro; attualmente funziona solamente su contenuti in lingua inglese.
+
+== Definizioni chiave (in breve)
+
+*Tipicità.* Grado `p in [0.5, 1]` che quantifica quanto una proprietà è caratteristica (ma *sospendibile*) di un genere/concetto.
+
+*Proprietà rigide.* Vincoli *non sospendibili* che devono essere rispettati da tutti i brani del genere.
+
+*HEAD/MODIFIER.* Nella combinazione, l’*HEAD* è il genere principale la cui identità va preservata; il *MODIFIER* apporta tratti modificativi.
+
+*Scenario.* Sottoinsieme coerente di *tipiche* (più le *rigide*) selezionato da *CoCoS* e valutato con uno *scenario score* (prodotto dei `p` delle tipiche attive).
+
+== Esempio pratico
+
+Combinando il genere *reggae* (HEAD) con il genere *rap* (MODIFIER), *CoCoS* può selezionare uno scenario che preserva `reggae` e attiva tratti trasversali come `high_repetition` o `hook_repetition`. Il *recommender* suggerisce quindi brani rap con un ritornello ridondante ad un ascoltatore reggae, *spiegando* la scelta tramite le proprietà condivise col prototipo ibrido.
+
+== Ambito sperimentale
+
+Per il prototipo dimostrativo sono considerati *macro-generi* comuni e un corpus di testi raccolti da *Genius*. I parametri più rilevanti della pipeline (es. `topk_typical`, `max_rigid`, `--min-match-rate`, `--min-anchors`) sono resi espliciti nei capitoli metodologici e nel capitolo riservato ai *Risultati* ottenuti.
 
 
 == Sintesi

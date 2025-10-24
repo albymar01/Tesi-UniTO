@@ -46,6 +46,13 @@ Passiamo adesso al secondo modulo dove `BuildTypicalRigid.py` costruisce, per ci
 - `COMMON_PENALTY`, `DISTINCTIVE_MAX_GENRES`, `DISTINCTIVE_BOOST`: controllano rispettivamente la penalità ai tratti “orizzontali”, la soglia per considerare distintiva una proprietà e l’entità del boost.
 - `MIN_W`, `MAX_W`: fissano il range finale dei pesi tipici (coerente con `p in (0.5,1]` per l’uso in *TCL*).
 
+== Range di pesi [0.5, 1]
+
+L’intervallo scelto `[MIN_W, MAX_W] = [0.5, 1]` per i gradi di tipicità non è arbitrario:
+- il valore minimo `0.5` evita che una tipica molto debole (prossima a 0) annulli il prodotto nello *scenario score* di *CoCoS*;
+- il valore massimo `1` preserva la piena appartenenza logica del tratto.  
+Questo range garantisce coerenza con la semantica *TCL*, dove le tipiche hanno sempre un peso positivo ma sospendibile.
+
 == Esempio di esecuzione e lettura dei risultati
 Esecuzione (parametri lievemente più permissivi rispetto ai default “strict”):
 `python BuildTypicalRigid.py --input "<base>/descr_music_GENIUS.json" --out "<base>" --typical_thr_tags 0.80 --rigid_thr_tags 0.98 --typical_thr_words 0.80 --rigid_thr_words 0.98 --min_df_words 8 --topk_typical 6 --max_rigid 2`

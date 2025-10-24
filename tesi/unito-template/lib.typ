@@ -205,6 +205,10 @@ if bib != none {
   // Bibliografia formattata (senza titolo interno)
   bibliography(bib, full: true, title: none)
 }
+
+pagebreak(weak: true);
+
+
     if acknowledgments != none {
       //pagebreak(to: "odd")
       heading(level: 1, numbering: none, outlined: false,
